@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.query.entities.Aluno;
 import com.query.entities.Turma;
 import com.query.service.TurmaService;
 
@@ -45,7 +46,20 @@ public class TurmaController {
         List<Turma> turmas = turmaService.getAllTurmas();
         return ResponseEntity.ok(turmas);
     }
+    
+    @GetMapping("/descricao/{descricao}")
+    public ResponseEntity<String> buscarTurmasPorDescricao(@PathVariable String descricao){
+    	List<Turma>turmas = turmaService.buscarTurmasPorDescricoes(descricao);
+    	return ResponseEntity.ok(descricao);
+    }
 
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<String> buscarTurmasPorNome(@PathVariable String nome){
+    	List<Turma>turmas = turmaService.buscarTurmasPorNomes(nome);
+    	return ResponseEntity.ok(nome);
+    }
+
+    
     @PostMapping("/")
     public ResponseEntity<Turma> criarTurma(@RequestBody @Valid Turma turma) {
         Turma criarTurma = turmaService.salvarTurma(turma);

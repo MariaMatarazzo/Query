@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.query.entities.Aluno;
 import com.query.entities.Turma;
 import com.query.repository.TurmaRepository;
 
@@ -19,6 +20,14 @@ public class TurmaService {
 
     public List<Turma> getAllTurmas() {
         return turmaRepository.findAll();
+    }
+    
+    public List<Turma>buscarTurmasPorNomes(String nome){
+    	return turmaRepository.findByNome(nome);
+    }
+    
+    public List<Turma>buscarTurmasPorDescricoes(String descricao){
+    	return turmaRepository.findByDescricao(descricao);
     }
 
     public Turma getTurmaById(Long id) {

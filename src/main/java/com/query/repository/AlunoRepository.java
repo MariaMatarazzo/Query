@@ -8,6 +8,8 @@ import com.query.entities.Aluno;
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 List<Aluno> findByCidade(String cidade);
 List<Aluno> findByNome(String nome);
+List<Aluno> findByRa(String ra);
+List<Aluno> findByRenda(double renda);
 
 	//Query Methods
 	

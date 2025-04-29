@@ -46,15 +46,28 @@ public class AlunoController {
         return ResponseEntity.ok(alunos);
     }
 
-    @GetMapping("/cidade{cidade}")
+    @GetMapping("/cidade/{cidade}")
     public ResponseEntity<List<Aluno>>buscarAlunosPorCidade(@PathVariable String cidade){
     	List<Aluno>alunos = alunoService.buscarAlunosPorCidade(cidade);
     	return ResponseEntity.ok(alunos);
     }
     
-    @GetMapping("/nomes{nome}")
+    @GetMapping("/nomes/{nome}")
     public ResponseEntity<List<Aluno>>buscarAlunosPorNomes(@PathVariable String nome){
     	List<Aluno>alunos = alunoService.buscarAlunosPorNomes(nome);
+    	return ResponseEntity.ok(alunos);
+    }
+    
+    //Renda
+    @GetMapping("/renda/{renda}")
+    public ResponseEntity<List<Aluno>>buscarAlunosPorRendas(@PathVariable double renda){
+    	List<Aluno>alunos = alunoService.buscarAlunosPorRendas(renda);
+    	return ResponseEntity.ok(alunos);
+    }
+    
+    @GetMapping("/ra/{ra}")
+    public ResponseEntity<List<Aluno>>buscarAlunosPorRas(@PathVariable String ra){
+    	List<Aluno>alunos = alunoService.buscarAlunosPorRas(ra);
     	return ResponseEntity.ok(alunos);
     }
     

@@ -29,6 +29,14 @@ public class AlunoService {
     	return alunoRepository.findByNome(nome);
     }
     
+    public List<Aluno>buscarAlunosPorRas(String ra){
+    	return alunoRepository.findByRa(ra);
+    }
+    
+    public List<Aluno>buscarAlunosPorRendas(double renda){
+    	return alunoRepository.findByRenda(renda);
+    }
+    
     public Aluno getAlunoById(Long id) {
         Optional<Aluno> aluno = alunoRepository.findById(id);
         return aluno.orElse(null);
